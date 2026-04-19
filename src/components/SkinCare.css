@@ -1,0 +1,377 @@
+.skincare-page {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #2e1a47;
+}
+
+.skincare-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    gap: 1rem;
+    color: #7c52aa;
+    font-weight: 600;
+}
+
+.skincare-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    color: #7c52aa;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background: #fdf4ff;
+    transform: translateX(-3px);
+}
+
+.skincare-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    margin: 0;
+    background: linear-gradient(135deg, #2e1a47, #7c52aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.skincare-subtitle {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin: 0.25rem 0 0 0;
+}
+
+.edit-shelf-btn {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    border: 1px solid #f3e8ff;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    color: #7c52aa;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(124, 82, 170, 0.05);
+}
+
+.skincare-hero-compact {
+    background: linear-gradient(135deg, #7c52aa, #e040a0);
+    padding: 1.5rem 2rem;
+    border-radius: 1.5rem;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 30px rgba(224, 64, 160, 0.2);
+    display: flex;
+    justify-content: center;
+}
+
+.hero-insight-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Routines Dashboard */
+.routines-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.routine-section {
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.morning-group { background: #fffcf0; border: 1px solid #fef3c7; }
+.evening-group { background: #f5f3ff; border: 1px solid #ede9fe; }
+.weekly-group { background: #fff1f2; border: 1px solid #ffe4e6; }
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #2e1a47;
+    margin: 0;
+}
+
+.routine-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.routine-card-item {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border: 1px solid rgba(255,255,255,0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.routine-card-item:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 12px 25px rgba(124, 82, 170, 0.08);
+}
+
+.routine-card-item.done {
+    opacity: 0.7;
+    background: #f0fdf4;
+    border-color: #d1fae5;
+}
+
+.card-top {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.ritual-icons-box {
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+
+.ritual-main-info {
+    flex-grow: 1;
+}
+
+.ritual-sub-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    color: #2e1a47;
+}
+
+.ritual-sub-desc {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.log-mini-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid #f3e8ff;
+    background: #fff;
+    color: #7c52aa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.log-mini-btn:hover:not(:disabled) {
+    background: #7c52aa;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.log-mini-btn.checked {
+    background: #10b981;
+    color: #fff;
+    border-color: #10b981;
+}
+
+.ritual-why-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #e040a0;
+    background: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    width: fit-content;
+    border: 1px solid #fce8f3;
+}
+
+.card-tags-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.card-mini-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: lowercase;
+}
+
+.empty-ritual-placeholder {
+    font-style: italic;
+    color: #9ca3af;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Optimization Suggestions */
+.engine-suggestions-box {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 2rem;
+    border: 1px solid #f3e8ff;
+}
+
+.suggestion-head {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #2e1a47;
+    margin: 0 0 1.5rem 0;
+}
+
+.suggestions-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mini-suggestion-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #fdf4ff;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    color: #7c52aa;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-left: 4px solid #e040a0;
+}
+
+.engine-footer {
+    padding: 4rem 0 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.engine-status-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #9ca3af;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Questionnaire Grid Override */
+.product-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.product-type-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.product-type-card.selected {
+    border-color: #e040a0;
+    background: #fdf4ff;
+}
+
+.product-type-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.type-label { font-weight: 800; font-size: 1.1rem; color: #2e1a47; }
+
+.brand-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #fff;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid #fce8f3;
+}
+
+.brand-input-wrap input { flex-grow: 1; border: none; outline: none; font-size: 0.9rem; color: #2e1a47; }
+
+.remove-prod-btn {
+    width: 24px; height: 24px; border-radius: 50%; border: none;
+    background: #fee2e2; color: #ef4444; display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+
+.btn-primary-skincare {
+    background: linear-gradient(135deg, #7c52aa, #e040a0);
+    color: #fff;
+    padding: 1rem 3rem;
+    border-radius: 999px;
+    border: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(224, 64, 160, 0.25);
+    transition: all 0.2s;
+}
+
+.btn-primary-skincare:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(224, 64, 160, 0.35); }
+
+.fade-in { animation: fadeIn 0.5s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }

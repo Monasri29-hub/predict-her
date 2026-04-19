@@ -1,0 +1,187 @@
+/* ── SidebarNav — Desktop sidebar + Mobile bottom tab bar ─────────── */
+
+/* ── Desktop sidebar ─────────────────────────────────────────────── */
+.snav-aside {
+  width: 240px;
+  min-width: 240px;
+  height: 100vh;
+  border-right: 1px solid #fce8f3;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+  box-shadow: 10px 0 15px -3px rgba(236, 72, 153, 0.05);
+  z-index: 50;
+  flex-shrink: 0;
+}
+
+.snav-brand {
+  padding: 0 1.5rem;
+  margin-bottom: 2rem;
+}
+.snav-brand h1 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: #db2777;
+  margin: 0;
+}
+.snav-brand p {
+  font-size: 0.75rem;
+  color: #71717a;
+  font-weight: 500;
+  margin: 0;
+}
+
+.snav-nav {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.snav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  background: transparent;
+  color: #71717a;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: inherit;
+  text-align: left;
+  outline: none;
+  width: calc(100% - 2rem);
+}
+.snav-btn:hover {
+  background: #faf5ff;
+  transform: translateX(4px);
+  color: #be185d;
+}
+.snav-btn.snav-active {
+  background: #fce8f3;
+  color: #be185d;
+  font-weight: 700;
+}
+.snav-btn.snav-active:hover { transform: none; }
+
+/* Profile button — slight highlight */
+.snav-btn[data-id="profile"].snav-active {
+  background: linear-gradient(135deg, #fce8f3, #ede8f8);
+  color: #7c52aa;
+}
+
+.snav-footer {
+  padding: 0 1rem;
+  margin-top: auto;
+}
+
+.snav-log-btn {
+  width: 100%;
+  background: #e040a0;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 30px -5px rgba(224, 64, 160, 0.4);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.snav-log-btn:hover { transform: scale(1.04); }
+
+/* ── Mobile: hide sidebar, show bottom tab bar ────────────────────── */
+.snav-mobile-bar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  /* Hide desktop sidebar */
+  .snav-aside { display: none; }
+
+  /* Show bottom tab bar */
+  .snav-mobile-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid #fce8f3;
+    box-shadow: 0 -4px 24px rgba(224, 64, 160, 0.08);
+    padding: 0.4rem 0 max(0.4rem, env(safe-area-inset-bottom));
+  }
+
+  .snav-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    padding: 0.4rem 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    color: #a0809a;
+    font-size: 0.65rem;
+    font-weight: 600;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .snav-tab.snav-active {
+    color: #e040a0;
+  }
+  .snav-tab.snav-active svg {
+    filter: drop-shadow(0 2px 6px rgba(224, 64, 160, 0.4));
+  }
+  .snav-tab:active { transform: scale(0.9); }
+
+  /* Log button becomes a floating center button */
+  .snav-tab-log {
+    flex: 0 0 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+  }
+  .snav-tab-log-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e040a0, #7c52aa);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(224, 64, 160, 0.45);
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-family: inherit;
+    margin-top: -12px;  /* lift it above the bar */
+  }
+  .snav-tab-log-circle:active { transform: scale(0.9); }
+  .snav-tab-log span { font-size: 0.6rem; font-weight: 700; color: #a0809a; }
+}
+
+/* ── Main content: add padding-bottom on mobile for the tab bar ───── */
+@media (max-width: 767px) {
+  .main-content-container {
+    padding: 1.25rem 1rem 6rem !important;
+  }
+}

@@ -1,0 +1,508 @@
+/* ── Layout ─────────────────────────────────────────────────────── */
+.signup-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  background: var(--bg-gradient, #fdf2f8);
+}
+
+/* ── Left panel ─────────────────────────────────────────────────── */
+.signup-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(160deg, #1a0a2e 0%, #3d1a6e 40%, #7b2d8b 70%, #c44d7b 100%);
+  overflow: hidden;
+}
+
+.signup-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 15% 15%, rgba(220,130,200,0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 65% at 85% 80%, rgba(100,60,170,0.30) 0%, transparent 50%);
+  animation: shiftGlow 12s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes shiftGlow {
+  0%   { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.08) translateX(10px); }
+}
+
+/* ── Morphing wave layers ─────────────────────────── */
+.lw-wave {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  border-radius: 45% 55% 60% 40% / 40% 50% 50% 60%;
+  opacity: 0.18;
+  z-index: 1;
+}
+
+.lw-wave-1 {
+  bottom: -30%;
+  height: 80%;
+  background: linear-gradient(135deg, #ff8fd4, #9b5de5);
+  animation: morphWave1 16s ease-in-out infinite;
+}
+.lw-wave-2 {
+  bottom: -45%;
+  height: 85%;
+  background: linear-gradient(135deg, #c44d7b, #7b2d8b);
+  animation: morphWave2 20s ease-in-out infinite;
+  opacity: 0.14;
+}
+.lw-wave-3 {
+  top: -35%;
+  height: 75%;
+  background: linear-gradient(225deg, #ffd6ee, #7c52aa);
+  animation: morphWave3 24s ease-in-out infinite;
+  opacity: 0.10;
+}
+
+@keyframes morphWave1 {
+  0%   { border-radius: 45% 55% 60% 40% / 40% 50% 50% 60%; transform: rotate(0deg)   translateY(0px); }
+  33%  { border-radius: 60% 40% 45% 55% / 55% 40% 60% 45%; transform: rotate(3deg)   translateY(-18px); }
+  66%  { border-radius: 50% 50% 35% 65% / 45% 60% 40% 55%; transform: rotate(-2deg)  translateY(10px); }
+  100% { border-radius: 45% 55% 60% 40% / 40% 50% 50% 60%; transform: rotate(0deg)   translateY(0px); }
+}
+@keyframes morphWave2 {
+  0%   { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; transform: rotate(-3deg) translateY(0px); }
+  50%  { border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%; transform: rotate(4deg)  translateY(-22px); }
+  100% { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; transform: rotate(-3deg) translateY(0px); }
+}
+@keyframes morphWave3 {
+  0%   { border-radius: 55% 45% 40% 60% / 60% 50% 50% 40%; transform: rotate(5deg)  translateY(0px); }
+  50%  { border-radius: 40% 60% 55% 45% / 45% 55% 60% 40%; transform: rotate(-4deg) translateY(16px); }
+  100% { border-radius: 55% 45% 40% 60% / 60% 50% 50% 40%; transform: rotate(5deg)  translateY(0px); }
+}
+
+/* ── Realistic Moon ──────────────────────────────── */
+.lw-moon-glow {
+  position: absolute;
+  z-index: 4;
+  animation: moonFloat 9s ease-in-out infinite, moonGlowPulse 9s ease-in-out infinite;
+  filter:
+    drop-shadow(0 0 22px rgba(200,180,255,0.55))
+    drop-shadow(0 0 60px rgba(160,120,240,0.28));
+}
+
+.lw-moon-container {
+  width: 9.5rem;
+  height: 9.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.lw-moon-surface {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.lw-moon-shadow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a0a3e 0%, #3d1a6e 40%, #5b2080 70%, #7b2d8b 100%);
+  opacity: 0.92;
+  animation: moonPhaseCycle 24s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes moonGlowPulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 22px rgba(200,180,255,0.55))
+      drop-shadow(0 0 60px rgba(160,120,240,0.28));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 38px rgba(220,200,255,0.80))
+      drop-shadow(0 0 100px rgba(180,140,255,0.50));
+  }
+}
+
+@keyframes moonPhaseCycle {
+  0%   { clip-path: inset(0 0% 0 0); }
+  10%  { clip-path: inset(0 10% 0 0 round 50%); }
+  22%  { clip-path: inset(0 50% 0 0% round 50%); }
+  34%  { clip-path: inset(0 82% 0 0% round 50%); }
+  46%  { clip-path: inset(0 100% 0 0); }
+  54%  { clip-path: inset(0 100% 0 0); }
+  66%  { clip-path: inset(0 0 0 82% round 50%); }
+  78%  { clip-path: inset(0 0 0 50% round 50%); }
+  90%  { clip-path: inset(0 0 0 10% round 50%); }
+  100% { clip-path: inset(0 0% 0 0); }
+}
+
+/* ── Orbiting particle ────────────────────────────── */
+.lw-orbit {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.08);
+  animation: orbitSpin 18s linear infinite;
+  z-index: 3;
+}
+
+.lw-orbit-dot {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,210,240,0.9);
+  box-shadow: 0 0 12px rgba(255,180,220,0.8);
+  transform: translateX(-50%);
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Twinkling stars ──────────────────────────────── */
+.lw-star {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 0 6px rgba(255,210,240,0.8);
+  z-index: 5;
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.lw-s1 { width:3px; height:3px; top:8%;  left:14%; animation-delay:0s;    animation-duration:2.8s; }
+.lw-s2 { width:5px; height:5px; top:18%; left:78%; animation-delay:0.8s;  animation-duration:3.5s; }
+.lw-s3 { width:2px; height:2px; top:35%; left:22%; animation-delay:1.5s;  animation-duration:2.2s; }
+.lw-s4 { width:4px; height:4px; top:55%; left:85%; animation-delay:0.4s;  animation-duration:4.0s; }
+.lw-s5 { width:3px; height:3px; top:70%; left:12%; animation-delay:2.0s;  animation-duration:3.2s; }
+.lw-s6 { width:2px; height:2px; top:82%; left:65%; animation-delay:1.1s;  animation-duration:2.6s; }
+.lw-s7 { width:5px; height:5px; top:90%; left:35%; animation-delay:0.6s;  animation-duration:3.8s; }
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%       { opacity: 1.0; transform: scale(1.5); }
+}
+
+/* ── Minimal text overlay ─────────────────────────── */
+.lw-text {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+  animation: fadeUp 1.2s ease-out both;
+}
+
+.su-brand-minimal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.8;
+}
+
+.su-brand-minimal span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  color: #ffd6ee;
+  letter-spacing: -0.5px;
+  font-size: 1.1rem;
+}
+
+.lw-tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.95);
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.lw-tagline em {
+  font-style: normal;
+  color: #ffd6ee;
+}
+
+.su-feature-pills {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.su-feature-pills span {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Right panel ─────────────────────────────────────────────────── */
+.signup-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.03);
+  padding: 2.5rem 4rem;
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.signup-form-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+.su-form-header {
+  margin-bottom: 2rem;
+}
+.su-form-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #2e1a28;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.4rem;
+}
+.su-form-sub {
+  font-size: 0.95rem;
+  color: #a0aec0;
+  font-weight: 500;
+}
+
+/* ── Error banner ─────────────────────────────────────────────────── */
+.su-error-box {
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: #c53030;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Input groups ─────────────────────────────────────────────────── */
+.su-input-group {
+  margin-bottom: 1.25rem;
+}
+.su-input-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #604868;
+  margin-left: 0.8rem;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.su-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f7fafc;
+  border-radius: 1.5rem;
+  border: 1.5px solid transparent;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.su-input-wrapper:focus-within {
+  border-color: #e040a0;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(224, 64, 160, 0.12);
+}
+.su-input-wrapper.su-input-error { border-color: #e53e3e; box-shadow: 0 0 0 3px rgba(229,62,62,0.1); }
+.su-input-wrapper.su-input-ok   { border-color: #22c55e; }
+
+.su-input-icon {
+  position: absolute;
+  left: 1.1rem;
+  color: #a0aec0;
+  transition: color 0.2s;
+  pointer-events: none;
+}
+.su-input-wrapper:focus-within .su-input-icon { color: #e040a0; }
+
+.su-input-wrapper input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3.2rem;
+  border: none;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #2e1a28;
+  outline: none;
+  border-radius: 1.5rem;
+}
+.su-input-wrapper input::placeholder { color: #c4b5d0; }
+
+.su-eye-btn {
+  position: absolute;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #a0aec0;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: color 0.2s;
+}
+.su-eye-btn:hover { color: #e040a0; }
+
+.su-field-error {
+  font-size: 0.75rem;
+  color: #e53e3e;
+  font-weight: 600;
+  margin-top: 0.35rem;
+  margin-left: 0.9rem;
+}
+
+/* ── Password strength ────────────────────────────────────────────── */
+.su-strength-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  padding: 0 0.5rem;
+}
+.su-strength-track {
+  display: flex;
+  gap: 0.3rem;
+  flex: 1;
+}
+.su-strength-bar {
+  height: 4px;
+  flex: 1;
+  border-radius: 9999px;
+  transition: background-color 0.3s;
+}
+.su-strength-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+/* ── Agree row ────────────────────────────────────────────────────── */
+.su-agree-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.su-checkbox {
+  margin-top: 2px;
+  accent-color: #e040a0;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.su-agree-label {
+  font-size: 0.82rem;
+  color: #604868;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.su-link {
+  color: #7c52aa;
+  font-weight: 700;
+  text-decoration: none;
+}
+.su-link:hover { text-decoration: underline; }
+
+/* ── Submit button ────────────────────────────────────────────────── */
+.su-btn {
+  width: 100%;
+  padding: 1.1rem;
+  border-radius: 2rem;
+  border: none;
+  background: linear-gradient(135deg, #ec4899, #7c52aa);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(224, 64, 160, 0.35);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+  letter-spacing: 0.02em;
+}
+.su-btn:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(224, 64, 160, 0.45);
+}
+.su-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* ── Footer links ─────────────────────────────────────────────────── */
+.su-login-link-row {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #a0aec0;
+  font-weight: 500;
+}
+.su-login-link {
+  color: #7c52aa;
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  margin-left: 0.25rem;
+  transition: color 0.2s;
+}
+.su-login-link:hover { color: #e040a0; }
+
+.su-privacy-footer {
+  position: absolute;
+  bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #a0aec0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Responsive: hide left panel below 768px ─────────────────────── */
+@media (max-width: 768px) {
+  .signup-left { display: none; }
+  .signup-right { padding: 2rem 1.5rem; }
+}

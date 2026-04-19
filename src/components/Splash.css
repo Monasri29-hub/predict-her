@@ -1,0 +1,179 @@
+.splash-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fce7f3 0%, #fae8ff 40%, #e0f2fe 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite alternate;
+  position: relative;
+  overflow: hidden;
+  z-index: 50;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.splash-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.4) 0%, transparent 60%);
+  z-index: 1;
+}
+
+/* Star Field */
+.star-field {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  animation: twinkle 4s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Moon Arc */
+.moon-arc {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.moon-phase-wrapper {
+  width: 32px;
+  height: 32px;
+  color: rgba(255,255,255,0.7);
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+  animation: moonGlow 4s infinite ease-in-out;
+}
+
+/* Adjusting vertical positions to form an arc */
+.moon-phase-wrapper:nth-child(1), .moon-phase-wrapper:nth-child(7) { transform: translateY(40px) rotate(-15deg); width: 24px; height: 24px; opacity: 0.5; }
+.moon-phase-wrapper:nth-child(2), .moon-phase-wrapper:nth-child(6) { transform: translateY(20px) rotate(-10deg); width: 28px; height: 28px; opacity: 0.7; }
+.moon-phase-wrapper:nth-child(3), .moon-phase-wrapper:nth-child(5) { transform: translateY(5px) rotate(-5deg); opacity: 0.85; }
+.moon-phase-wrapper:nth-child(4) { transform: translateY(0); color: #fff; filter: drop-shadow(0 0 15px rgba(255,255,255,0.8)); opacity: 1; }
+
+@keyframes moonGlow {
+  0%, 100% { opacity: 0.6; transform: scale(0.95) translateY(inherit); }
+  50% { opacity: 1; transform: scale(1.05) translateY(inherit); }
+}
+
+/* Typography */
+.splash-logo {
+  font-size: 4.8rem;
+  font-weight: 900;
+  color: #f472b6; /* Match pink from reference */
+  margin: 0;
+  letter-spacing: -2px;
+  text-shadow: 0 4px 20px rgba(244, 114, 182, 0.2);
+  z-index: 10;
+  animation: logoFadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.splash-logo.italic {
+  font-style: italic;
+}
+
+@keyframes logoFadeIn {
+  from { opacity: 0; transform: scale(0.9) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.splash-tagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+  z-index: 10;
+  animation: fadeIn 1s ease-out 0.8s forwards;
+  opacity: 0;
+}
+
+/* Waves */
+.flowing-waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 25vh;
+  z-index: 3;
+  opacity: 0.5;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: repeat-x url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.2' d='M0,160L40,176C80,192,160,224,240,218.7C320,213,400,171,480,170.7C560,171,640,213,720,218.7C800,224,880,192,960,176C1040,160,1120,160,1200,181.3C1280,203,1360,245,1400,266.7L1440,288L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 1440px 100%;
+  animation: waveFlow 30s linear infinite;
+}
+
+.wave-2 {
+  bottom: -20px;
+  animation: waveFlow 20s linear infinite reverse;
+  opacity: 0.3;
+}
+
+.wave-3 {
+  bottom: -40px;
+  animation: waveFlow 45s linear infinite;
+  opacity: 0.15;
+}
+
+@keyframes waveFlow {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Loading Indicator */
+.loading-dots {
+  position: absolute;
+  bottom: 15%;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #f472b6;
+  border-radius: 50%;
+  animation: dotBlink 1.5s infinite ease-in-out;
+  opacity: 0.4;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
