@@ -19,3 +19,7 @@ This is a professional, AI-powered health tracking and PCOD risk assessment appl
 1. Clone the repository
 2. Run `npm install`
 3. Run `npm run dev` to start the development server
+
+## Deployment Server
+
+https://predict-her-phi.vercel.app/
